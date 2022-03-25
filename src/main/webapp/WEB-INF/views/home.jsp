@@ -50,14 +50,14 @@
 </c:if>
 
 <ul>
-<c:if test="${empty sessionScope.loginName}">
+<%-- <c:if test="${empty sessionScope.loginName}"> --%>
 	<li><a href="/member/join">회원 가입</a></li>
 	<li><a href="/member/login">로그인</a></li>
-</c:if>
-<c:if test="${not empty sessionScope.loginName}">
+<%-- </c:if> --%>
+<%-- <c:if test="${not empty sessionScope.loginName}"> --%>
 	<li><a href="/member/logout">로그아웃</a></li>
 	<li><a href="/board/board1">게시판 목록</a></li>
-</c:if>
+<%-- </c:if> --%>
 </ul>
 
 <c:if test = "${sessionScope.loginId == 'admin'}">

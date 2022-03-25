@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+ <mapper namespace ="com.spring.rounge.repository.CompanyMapper">
+
+	<!-- 회사 등록 -->
+	<insert id = "companyAdd" parameterType = "company">
+	    insert into company_create
+		(
+			company_name
+			,company_homepage
+			,company_service
+			,company_year
+			,headoffice
+			,employees
+            ,salary
+		)
+		values (
+			#{companyName},
+			#{companyHomepage},
+			#{companyService},
+			#{companyYear},
+			#{headOffice},
+			#{employees},
+			#{salary}
+		)
+	</insert>
+	
+	<!-- 회사 리스트 -->
+	<select id = "listCompany" resultType="String">
+		select 
+			company_name as companyName
+		from company_create
+	</select>
+	
+	<!-- 회사 정보 -->
+	<select id = "companyIntroduce" parameterType = "String" resultType="String">
+			select * from company_create
+	</select>
+
+ </mapper>

@@ -61,7 +61,7 @@
 </ul>
 
 <c:if test = "${sessionScope.loginId == 'admin'}">
-	<a href = "/adminPage">관리자 페이지로 이동</a>
+	<a href = "/adminPage">관리자 페이지로 이동ㅎ</a>
 </c:if>
 
 	<!-- Document Wrapper

@@ -37,6 +37,8 @@ function formCheck() {
 
 <form action="/board/boardWrite" method="post" onsubmit="return formCheck();">
 	<input type="hidden" name="boardName" value="${boardName }">
+	<input type="hidden" name="loginId" value="${pageContext.request.userPrincipal.name}">
+	
 	<table>
 	<tr>
 		<th>제목</th>

@@ -13,8 +13,6 @@
 <script src="/resources/js/jquery-3.6.0.min.js"></script>
 
 <script>
-
-//가입폼 확인
 function formCheck() {
 	var title = document.getElementById('title14');
 	if (title.value == '') {

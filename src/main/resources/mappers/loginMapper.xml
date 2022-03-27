@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace ="com.spring.rounge.repository.LoginMapper">
+	<select id="selectUser" resultType="Auth">
+		SELECT * FROM ROUNGE_MEMBER WHERE ID=#{param1}
+	</select>
+	
+	<select id="getAuthList" resultType="String">
+		SELECT AUTHORITY FROM rounge_auth WHERE ID=#{param1}
+	</select>
+ </mapper>

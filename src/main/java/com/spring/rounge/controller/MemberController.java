@@ -42,12 +42,20 @@ public class MemberController {
 
 		
 		boolean result = service.join(id9, password8, name7, photo5, language6);
+		boolean auth = service.auth(id9);
+		
 		String returnUrl = "member/join";
 		
 		if(result)
 		{
+			if(auth) {
 			logger.info("회원 가입 완료");
 			returnUrl = "redirect:/member/login";
+			}
+			else {
+				logger.info("회원 가입 실패");
+				model.addAttribute("errMsg111", "권한 메소드 오류");
+			}
 		}
 		else
 		{
@@ -58,52 +66,11 @@ public class MemberController {
 		return returnUrl;	
 	}
 	
-	
 	@RequestMapping(value = "/login", method = RequestMethod.GET)
 	public String login()
 	{
 		logger.info("login 메소드 실행(GET)");
-		
-		return "member/login";
-	}
-	
-	
-	@RequestMapping(value = "/login", method = RequestMethod.POST)
-	public String login(String id, String password, HttpSession session)
-	{
-		logger.info("login 메소드 실행(GET)");
-		
-		logger.info("id : {}", id);
-		logger.info("password : {}", password);
-		
-		String name = service.login(id,password);
-		logger.info("name : {}", name);
-		
-		if(name != null)
-		{
-			logger.info("로그인 처리 가능");
-			session.setAttribute("loginName", name);
-			session.setAttribute("loginId", id);
-
-		}
-		else
-		{
-			logger.info("로그인 실패");
-			return "member/login";
-		}
-		return "redirect:/";
-	}
-	
-	
-	@RequestMapping(value = "/logout", method = RequestMethod.GET)
-	public String logout(HttpSession session)
-	{
-		logger.info("logout 메소드 실행(GET)");
-		
-		session.removeAttribute("loginName");
-		session.removeAttribute("loginId");
-		
-		return "redirect:/";
+		return "/member/login";
 	}
 	
 	@RequestMapping(value = "/about", method = RequestMethod.GET)

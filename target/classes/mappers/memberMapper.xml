@@ -5,8 +5,15 @@
   
 <mapper namespace="com.spring.rounge.repository.MemberMapper">
 		
+	<!-- 회원가입 -->
 	<insert id = "join" parameterType = "Member">
-		insert into rounge_member
+	insert into rounge_member(
+        id,
+        password,
+        name,
+        photo,
+        language
+ 	  	)
 		values(
 			#{id },
 			#{password },
@@ -16,15 +23,13 @@
 		)
 	</insert>
 	
-	<select id = "login" parameterType="Member" resultType="String">
-		select
-			name 
-		from
-			rounge_member
-		where
-			id = #{id }
-			and
-			password = #{password }
-	</select>
-	
+	<insert id = "auth" parameterType = "String">
+	insert into rounge_auth(
+        id
+ 	  	)
+		values
+		(
+			#{id }
+		)
+	</insert>
 </mapper>

@@ -7,9 +7,12 @@
 		<typeAlias type = "com.spring.rounge.vo.MemberVO" alias = "Member"/>
 		<typeAlias type = "com.spring.rounge.vo.BoardVO" alias = "Board"/>
 		<typeAlias type = "com.spring.rounge.vo.CompanyVO" alias = "company"/>
+		<typeAlias type="com.spring.rounge.vo.UserDetailsVO" alias="Auth"/>
+		
 	</typeAliases>
 	
 	 <mappers>
+		<mapper resource="mappers/loginMapper.xml"/>
 		<mapper resource = "mappers/memberMapper.xml"/>
 		<mapper resource = "mappers/boardMapper.xml"/>
 		<mapper resource = "mappers/companyMapper.xml"/>

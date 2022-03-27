@@ -1,4 +1,5 @@
 drop table rounge_member;
+drop table rounge_auth;
 drop table board_create;
 drop sequence board_post_seq;
 drop table board_post;
@@ -11,8 +12,19 @@ create table rounge_member (
 	password	varchar2(20) 	not null,			
 	name		varchar2(20) 	not null,			
 	photo		number(1) 		default 1,		 
-	language	varchar2(20)	not null	
+	language	varchar2(20)	not null,
+    ENABLED     varchar2(1) default 1 CHECK(ENABLED='0' OR ENABLED='1')
 );
+
+-- 2
+ create table rounge_auth(
+ID VARCHAR2(20) NOT NULL,
+ AUTHORITY VARCHAR2(500) DEFAULT 'ROLE_USER' NOT NULL,
+ FOREIGN KEY (id) REFERENCES rounge_member (id));
+ 
+ -- 3
+insert into rounge_member(id,password,name,photo,language,enabled)values('admin','123','admin',1,'admin',1);
+insert into rounge_auth(id,AUTHORITY)values('admin','ROLE_ADMIN');
 
 -- 2
 create table board_create (

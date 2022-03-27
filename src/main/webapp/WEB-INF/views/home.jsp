@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://www.springframework.org/security/tags" prefix="s" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ page session="false" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
@@ -43,26 +46,19 @@
 
 <body class="stretched">
 <h1>[ ROUNGE ]</h1>
-<c:if test="${not empty sessionScope.loginName}">
-	<h2>
-	${sessionScope.loginName}(${sessionScope.loginId})님 환영합니다 !!!<br>
-	</h2>
-</c:if>
+<br>
 
-<ul>
-<c:if test="${empty sessionScope.loginName}">
-	<li><a href="/member/join">회원 가입</a></li>
-	<li><a href="/member/login">로그인</a></li>
-</c:if>
-<c:if test="${not empty sessionScope.loginName}">
-	<li><a href="/member/logout">로그아웃</a></li>
-	<li><a href="/board/board1">게시판 목록</a></li>
-</c:if>
-</ul>
+	<c:if test="${empty pageContext.request.userPrincipal}">
+		<li><a href="/member/join">회원 가입</a></li>
+		<li><a href="/member/login">로그인</a></li>
+	</c:if>
+	
+	<c:if test="${not empty pageContext.request.userPrincipal}">
+		<a href="${pageContext.request.contextPath}/security_logout">Log Out</a>
+		<li><a href="/board/board1">게시판 목록</a></li>
+	</c:if>
+	
 
-<c:if test = "${sessionScope.loginId == 'admin'}">
-	<a href = "/adminPage">관리자 페이지로 이동</a>
-</c:if>
 
 	<!-- Document Wrapper
 	============================================= -->

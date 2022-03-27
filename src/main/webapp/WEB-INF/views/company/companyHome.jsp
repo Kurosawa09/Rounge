@@ -42,6 +42,8 @@
 		</c:choose>
 
 			<input id="btWrite" type="button" value="기업 정보 등록하기">
-
+			<form action="/board/boardAdd">
+				<input type="submit" value="기업 정보 등록하기">
+			</form>
 </body>
 </html>

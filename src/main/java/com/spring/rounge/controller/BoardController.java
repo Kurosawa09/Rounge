@@ -96,12 +96,11 @@ public class BoardController {
 
 	// 글 쓰기 POST
 	@RequestMapping(value = "/boardWrite", method = RequestMethod.POST)
-	public String boardWrite(String boardName, BoardVO newBoard, HttpSession session, Model model) {
+	public String boardWrite(String boardName, String loginId, BoardVO newBoard, HttpSession session, Model model) {
 		logger.info("boardWrite 메소드 실행(POST)");
 
 		logger.info("newBoard : {}", newBoard);
-		
-		String loginId = (String) session.getAttribute("loginId");
+		logger.info("loginId : {}", loginId);
 		logger.info("boardName : {}", boardName);
 
 		boolean result = service.boardWrite(newBoard, loginId, boardName);

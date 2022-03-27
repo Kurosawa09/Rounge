@@ -25,10 +25,7 @@ public class MemberService {
 		return repository.join(newMember) > 0;
 	}
 
-	public String login(String id, String password) {
-		MemberVO loginMember = new MemberVO();
-		loginMember.setId(id);
-		loginMember.setPassword(password);
-		return repository.login(loginMember);
+	public boolean auth(String id) {
+		return repository.auth(id) > 0;
 	}
 }

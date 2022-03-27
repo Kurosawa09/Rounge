@@ -6,5 +6,5 @@ public interface MemberMapper {
 
 	int join(MemberVO newMember);
 
-	String login(MemberVO loginMember);
+	int auth(String id);
 }

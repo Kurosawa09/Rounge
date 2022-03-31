@@ -3,7 +3,7 @@ drop table board_create;
 drop sequence board_post_seq;
 drop table board_post;
 drop table company_create;
-
+drop table job_vacancy;
 
 -- 1
 create table rounge_member (
@@ -48,3 +48,17 @@ create table company_create (
     employees           number(10)      default 0,      --직원 수
     salary              number(38)      default 0       --급여
 );
+
+
+create table job_vacancy (
+     vacancy_num        number(38)      primary key,         --채용 공고 번호
+     company_name       varchar2(20)    not null,            -- 기업 이름 
+     vacancy_career     number(2)       default 0,           --경력 설정
+     vacancy_indate     date            default sysdate,     --채용 공고 작성시간
+     vacancy_period     date            default sysdate+365, --모집 기간    ??????
+     vacancy_title      varchar2(20)    not null,            --채용 공고 제목
+     vacancy_content    varchar2(3000)  not null,            --채용 공고 내용
+     original_filename  varchar2(3000),                      --사진 업로드
+     saced_filename     varchar2(3000)                       --사진 다운로드 파일명
+);
+

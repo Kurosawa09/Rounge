@@ -25,7 +25,7 @@
 
 <input type ="button" value = "기업 리뷰로 이동" onclick="location.href='/company/companyHome'">
 <input type ="button" value = "홈으로 이동" onclick="location.href='/'">
-	
+<input type="button" value = "채용공고로 이동" onclick= "location.href='/job/jobHome'">
 		<table border = 1>	
 			<tr>
 				<th>

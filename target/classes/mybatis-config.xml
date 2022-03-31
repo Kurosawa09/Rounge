@@ -7,12 +7,13 @@
 		<typeAlias type = "com.spring.rounge.vo.MemberVO" alias = "Member"/>
 		<typeAlias type = "com.spring.rounge.vo.BoardVO" alias = "Board"/>
 		<typeAlias type = "com.spring.rounge.vo.CompanyVO" alias = "company"/>
+		<typeAlias type = "com.spring.rounge.vo.JobVO" alias = "Job"/>
 	</typeAliases>
 	
 	 <mappers>
 		<mapper resource = "mappers/memberMapper.xml"/>
 		<mapper resource = "mappers/boardMapper.xml"/>
 		<mapper resource = "mappers/companyMapper.xml"/>
-		
+		<mapper resource = "mappers/jobMapper.xml"/>
   </mappers>
 </configuration>
